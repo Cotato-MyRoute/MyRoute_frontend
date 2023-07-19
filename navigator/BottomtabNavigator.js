@@ -6,8 +6,26 @@ import CommunityScreen from "../pages/CommunityScreen";
 import FavoriteScreen from "../pages/FavoritesScreen";
 import HomeScreen from "../pages/HomeScreen";
 import MapScreen from "../pages/MapScreen";
+import MyPageScreen from "../pages/MyPageScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
+const MyPageStack = createNativeStackNavigator();
+
+const MyPageStackNavigator = () => {
+  return (
+    <MyPageStack.Navigator>
+      <MyPageStack.Screen
+        name="MyPage"
+        component={MyPageScreen}
+        options={{
+          headerShown : false
+        }}
+      />
+    </MyPageStack.Navigator>
+  );
+};
+
 
 export default function BottomTabNavigator() {
   return (
@@ -92,6 +110,7 @@ export default function BottomTabNavigator() {
                   top: 0,
                   width: 69,
                   height: 69,
+                  
                 }}
               />
             ),
@@ -147,6 +166,14 @@ export default function BottomTabNavigator() {
             ),
           }}
         />
+        <MyPageStack.Screen 
+          name="MyPageScreen" 
+          component={MyPageStackNavigator}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null, // 탭에 버튼이 보이지 않도록 설정 
+          }}
+          />
       </Tab.Navigator>
     </View>
   );
