@@ -1,11 +1,31 @@
-import { Text, View, Image, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Text, View, Image, StyleSheet, Button, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import Carousel from "./Carousel";
 
 const HomeScreen = () => {
+
 const navigation = useNavigation();
+const screenWidth = Math.round(Dimensions.get('window').width);
+const PAGES = [
+  {
+    num: 1,
+    uri:"추후 추가"
+  },
+  {
+    num: 2,
+    uri:"추후 추가"
+  },
+  {
+    num: 3,
+    uri:"추후 추가"
+  },
+];
+
 
   return (
     <View>
+      {/* 헤더 */}
       <View style={styles.header}>
         <View
           style={{
@@ -19,9 +39,18 @@ const navigation = useNavigation();
             }}
             style={styles.logo}
           />
-          <Text style={styles.logo_title}>
-            My Route
-          </Text>
+          
+          <Image
+            source={{
+              uri: 'https://velog.velcdn.com/images/ea_st_ring/post/367ca3c2-aadb-4baf-aea8-0c7b7543eae2/image.png'
+            }}
+            style={{
+              width: 100,
+              height: 12,
+              marginTop: 10,
+              marginLeft:10,
+          }}
+          />
         </View>
         <TouchableOpacity 
           style={styles.mypage_button}
@@ -40,6 +69,26 @@ const navigation = useNavigation();
           <Text style={{fontSize: 12}}>마이페이지</Text>
         </TouchableOpacity>
       </View>
+
+      {/* 소개 */}
+      <View
+      style={{
+        overflow: "hidden",
+        width: 324,
+        height: 290,
+        justifyContent: "center",
+        alignItems:'center',
+        alignSelf:'center',
+      }}
+      >
+        <Text style={styles.intro_title}> 새로운 편집샵이 나왔어요! </Text>
+        <Carousel
+          gap={12}
+          offset={36}
+          pages={PAGES}
+          pageWidth={screenWidth - (16 + 36) * 2}
+        />
+      </View>
     </View>
   );
 };
@@ -52,26 +101,18 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection:'row',
     alignItems:'flex-end',
-    top: 30,
+    top: 40,
+    marginBottom: 108,
   },
   logo: {
     width: 16.214,
     height: 20.404,
   },
-  logo_title:{
-    fontSize: 12,
-    fontWeight: 700,
-    lineHeight: 12,
-    letterSpacing: 6.6,
-    marginLeft: 8,
-    top:8,    
-    color: 'black',
-  },
   mypage_button: {
     flexDirection:'row',
     borderRadius:999,
     borderWidth:1,
-    borderColor:'grey',
+    borderColor:'rgba(0, 0, 0, 0.30)',
     width: 95,
     height: 30,
     justifyContent: 'center',
@@ -79,5 +120,11 @@ const styles = StyleSheet.create({
     textAlign:'center',
     top: 8,
     right: 16,   
+  },
+  intro_title: {
+    fontSize: 18,
+    fontWeight: 500,
+    marginBottom: 26,
+    color : '#2D2D2D',
   }
 });
