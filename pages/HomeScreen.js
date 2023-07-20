@@ -1,12 +1,31 @@
-import { Text, View, Image, StyleSheet, Button, TouchableOpacity } from "react-native";
+import { Text, View, Image, StyleSheet, Button, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
+import Carousel from "./Carousel";
 
 const HomeScreen = () => {
+
 const navigation = useNavigation();
+const screenWidth = Math.round(Dimensions.get('window').width);
+const PAGES = [
+  {
+    num: 1,
+    uri:"추후 추가"
+  },
+  {
+    num: 2,
+    uri:"추후 추가"
+  },
+  {
+    num: 3,
+    uri:"추후 추가"
+  },
+];
+
 
   return (
     <View>
-      {/* Header */}
+      {/* 헤더 */}
       <View style={styles.header}>
         <View
           style={{
@@ -52,11 +71,24 @@ const navigation = useNavigation();
       </View>
 
       {/* 소개 */}
-      <View>
-
+      <View
+      style={{
+        overflow: "hidden",
+        width: 324,
+        height: 290,
+        justifyContent: "center",
+        alignItems:'center',
+        alignSelf:'center',
+      }}
+      >
+        <Text style={styles.intro_title}> 새로운 편집샵이 나왔어요! </Text>
+        <Carousel
+          gap={12}
+          offset={36}
+          pages={PAGES}
+          pageWidth={screenWidth - (16 + 36) * 2}
+        />
       </View>
-
-
     </View>
   );
 };
@@ -69,7 +101,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection:'row',
     alignItems:'flex-end',
-    top: 30,
+    top: 40,
+    marginBottom: 108,
   },
   logo: {
     width: 16.214,
@@ -87,5 +120,11 @@ const styles = StyleSheet.create({
     textAlign:'center',
     top: 8,
     right: 16,   
+  },
+  intro_title: {
+    fontSize: 18,
+    fontWeight: 500,
+    marginBottom: 26,
+    color : '#2D2D2D',
   }
 });
