@@ -1,12 +1,14 @@
 import { Text, View, Image, StyleSheet, Button, TouchableOpacity, Dimensions } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useState } from "react";
 import Carousel from "./Carousel";
 
 const HomeScreen = () => {
 
 const navigation = useNavigation();
 const screenWidth = Math.round(Dimensions.get('window').width);
+const imageSize = screenWidth >= 540 ? 477 : 367;
+
+
 const PAGES = [
   {
     num: 1,
@@ -74,8 +76,8 @@ const PAGES = [
       <View
       style={{
         overflow: "hidden",
-        width: 324,
-        height: 290,
+        width: imageSize,
+        height: 420,
         justifyContent: "center",
         alignItems:'center',
         alignSelf:'center',
@@ -83,10 +85,10 @@ const PAGES = [
       >
         <Text style={styles.intro_title}> 새로운 편집샵이 나왔어요! </Text>
         <Carousel
-          gap={12}
-          offset={36}
+          gap={0}
+          offset={0}
           pages={PAGES}
-          pageWidth={screenWidth - (16 + 36) * 2}
+          pageWidth={screenWidth - (screenWidth - imageSize)}
         />
       </View>
     </View>
