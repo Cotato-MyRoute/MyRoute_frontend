@@ -6,8 +6,11 @@ import CommunityScreen from "../pages/CommunityScreen";
 import FavoriteScreen from "../pages/FavoritesScreen";
 import HomeScreen from "../pages/HomeScreen";
 import MapScreen from "../pages/MapScreen";
+import MyPageScreen from "../pages/MyPageScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
+
 
 export default function BottomTabNavigator() {
   return (
@@ -92,6 +95,7 @@ export default function BottomTabNavigator() {
                   top: 0,
                   width: 69,
                   height: 69,
+                  
                 }}
               />
             ),
@@ -147,6 +151,14 @@ export default function BottomTabNavigator() {
             ),
           }}
         />
+        <Tab.Screen 
+          name="MyPageScreen" 
+          component={MyPageScreen}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null,
+          }}
+          />
       </Tab.Navigator>
     </View>
   );
