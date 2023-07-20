@@ -6,6 +6,7 @@ const navigation = useNavigation();
 
   return (
     <View>
+      {/* Header */}
       <View style={styles.header}>
         <View
           style={{
@@ -19,9 +20,18 @@ const navigation = useNavigation();
             }}
             style={styles.logo}
           />
-          <Text style={styles.logo_title}>
-            My Route
-          </Text>
+          
+          <Image
+            source={{
+              uri: 'https://velog.velcdn.com/images/ea_st_ring/post/367ca3c2-aadb-4baf-aea8-0c7b7543eae2/image.png'
+            }}
+            style={{
+              width: 100,
+              height: 12,
+              marginTop: 10,
+              marginLeft:10,
+          }}
+          />
         </View>
         <TouchableOpacity 
           style={styles.mypage_button}
@@ -40,6 +50,13 @@ const navigation = useNavigation();
           <Text style={{fontSize: 12}}>마이페이지</Text>
         </TouchableOpacity>
       </View>
+
+      {/* 소개 */}
+      <View>
+
+      </View>
+
+
     </View>
   );
 };
@@ -58,20 +75,11 @@ const styles = StyleSheet.create({
     width: 16.214,
     height: 20.404,
   },
-  logo_title:{
-    fontSize: 12,
-    fontWeight: 700,
-    lineHeight: 12,
-    letterSpacing: 6.6,
-    marginLeft: 8,
-    top:8,    
-    color: 'black',
-  },
   mypage_button: {
     flexDirection:'row',
     borderRadius:999,
     borderWidth:1,
-    borderColor:'grey',
+    borderColor:'rgba(0, 0, 0, 0.30)',
     width: 95,
     height: 30,
     justifyContent: 'center',
