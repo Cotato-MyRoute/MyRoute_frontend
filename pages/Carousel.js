@@ -7,7 +7,7 @@ export default function Carousel({pages, pageWidth, gap, offset}) {
 
     function renderItem({item}) {
         return (
-            <IntroducePage item={item} style={{width: pageWidth, marginHorizontal: gap / 2}} />
+            <IntroducePage item={item} screenWidth={pageWidth + 64} style={{width: pageWidth, marginHorizontal: gap / 2}} />
         );
     }
 
@@ -22,7 +22,7 @@ export default function Carousel({pages, pageWidth, gap, offset}) {
         <View style={styles.container}>
             <View
                 style={{
-                    height: 220,
+                    height: pageWidth + 64 >= 540 ? 320 : 270,
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
@@ -41,7 +41,7 @@ export default function Carousel({pages, pageWidth, gap, offset}) {
                     onScroll={onScroll}
                     pagingEnabled
                     renderItem={renderItem}
-                    snapToInterval={pageWidth + 18}
+                    snapToInterval={pageWidth + gap}
                     snapToAlignment="start"
                     showsHorizontalScrollIndicator={false}
                 />

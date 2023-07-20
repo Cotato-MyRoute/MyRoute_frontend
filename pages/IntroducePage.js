@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const IntroducePage = ({item, uri}) => {
+const IntroducePage = ({item, screenWidth, uri}) => {
 
+    const imageWidth = screenWidth >= 540 ? 477 : 367;
+    const imageHeight = screenWidth >= 540 ? 289 : 228;
+    
     const styles = StyleSheet.create({
         image: {
-            width: 324,
-            height: 200,
+            width: imageWidth,
+            height: imageHeight,
         },
         pageItem: {
             justifyContent: 'center',
             alignItems: 'center',
-            height: 200, 
-            // 전체 높이
+            height: imageHeight,
         }
     });
 
