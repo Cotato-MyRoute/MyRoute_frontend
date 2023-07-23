@@ -124,6 +124,52 @@ const PAGES = [
         </TouchableOpacity>
       </View>
 
+      {/* 등록 */}
+      <View>
+        <TouchableOpacity
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection:'row',
+            position: 'relative'
+          }}
+          onPress={()=> navigation.navigate("Register")}
+        >
+          <Image
+            source={{
+              uri: 'https://velog.velcdn.com/images/ea_st_ring/post/7a7735c3-57ce-4006-887d-60faef36585f/image.png'
+            }}
+            style={{
+              width:428,
+              height:75,
+            }}
+          />
+          <Text
+            style={{
+              position:"absolute",
+              textAlign:'center',
+              color:'white',
+              fontSize:16,
+              paddingBottom:12,
+            }}
+          >
+            상점 등록하러 가기
+          </Text>
+          <Image
+            source={{
+              uri:'https://velog.velcdn.com/images/ea_st_ring/post/c799c908-d3c0-4ed6-ade1-3006f9979c72/image.png'
+            }}
+            style={{
+              width:22,
+              height:22,
+              position:'absolute',
+              right: 125,
+              bottom: 30,
+            }}
+          />
+        </TouchableOpacity>
+      </View>
+
     </View>
   );
 };
@@ -177,11 +223,17 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     padding: 10,
     marginTop: 29,
+    marginBottom: 48,
   },
   search_input: {
     width:210,
     height:39,
     padding:8,
     zIndex:1,
+  },
+  register_wrapper: {
+    width: 400,
+    height: 60,
+    
   }
 });
