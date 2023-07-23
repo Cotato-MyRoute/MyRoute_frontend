@@ -7,10 +7,10 @@ import FavoriteScreen from "../pages/FavoritesScreen";
 import HomeScreen from "../pages/HomeScreen";
 import MapScreen from "../pages/MapScreen";
 import MyPageScreen from "../pages/MyPageScreen";
+import Register from "../pages/Register";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 const Tab = createBottomTabNavigator();
-
 
 export default function BottomTabNavigator() {
   return (
@@ -154,6 +154,14 @@ export default function BottomTabNavigator() {
         <Tab.Screen 
           name="MyPageScreen" 
           component={MyPageScreen}
+          options={{
+            headerShown: false,
+            tabBarButton: () => null,
+          }}
+          />
+        <Tab.Screen 
+          name="Register" 
+          component={Register}
           options={{
             headerShown: false,
             tabBarButton: () => null,
