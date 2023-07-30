@@ -86,7 +86,7 @@ const MapScreen = () => {
         },
         {
           'name' : '액세서리',
-          'key' :  'accessory',
+          'key' :  'cloth_accessory',
         }
     ]}
   ]
@@ -154,22 +154,25 @@ const MapScreen = () => {
                   style={[
                     styled.category_items,
                     {left : 20 + (120 * index)}
-                ]}>
+                ]}
+                  key={categoryKey}
+                >
                     {items.map((item) => (
                       <TouchableOpacity 
                         key={item.key}
                         style={styled.category_item}
                         onPress={() => {
                           setIsSelected(null);
-                          setSelectedItem(item.name);
+                          setSelectedItem(item.key);
                           // 후에 카테고리별로 필터링
                         }}
                         >
                         <Text
                           style={{
                             fontSize: 18,
-                            color: selectedItem === item.name ? '#7B61FF' : 'black'
+                            color: selectedItem === item.key ? '#7B61FF' : 'black'
                           }}
+                          key={item.key}
                         >{item.name}</Text>
                       </TouchableOpacity>
                     ))}
