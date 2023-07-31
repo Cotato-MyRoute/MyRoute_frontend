@@ -2,6 +2,7 @@ import { Text, View, Image, StyleSheet, Button, TouchableOpacity, Dimensions, Te
 import { useNavigation } from "@react-navigation/native";
 import Carousel from "./Carousel";
 import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 const HomeScreen = () => {
 
@@ -101,29 +102,9 @@ const PAGES = [
       </View>
 
       {/* 검색 */}
-      <View style={styles.input_wrapper}>
-        <TextInput
-          style={styles.search_input} 
-          placeholder="상점명을 검색하세요."
-          onChangeText={handleChange}
-          value={searchValue || " "}
-        >
-        </TextInput>
-        <TouchableOpacity onPress={()=>{
-            alert(`후에 ${searchValue} 검색 구현`)
-          }}>
-        <Image 
-          source={{uri : 'https://velog.velcdn.com/images/ea_st_ring/post/d7be86c3-ee37-4e01-a2b0-29f14ece8497/image.png'}}
-          style={{
-            width: 18,
-            height: 18,
-            marginRight: 8,
-            zIndex:999,
-          }}
-        />
-        </TouchableOpacity>
-      </View>
-
+      
+      <SearchBar placeholderText={"상점 명을 검색하세요."} searchFunction={()=>alert('후에 구현')}/>
+      
       {/* 등록 */}
       <View>
         <TouchableOpacity
@@ -140,7 +121,7 @@ const PAGES = [
               uri: 'https://velog.velcdn.com/images/ea_st_ring/post/7a7735c3-57ce-4006-887d-60faef36585f/image.png'
             }}
             style={{
-              width:428,
+              width:440,
               height:75,
             }}
           />
@@ -169,7 +150,6 @@ const PAGES = [
           />
         </TouchableOpacity>
       </View>
-
     </View>
   );
 };
@@ -232,7 +212,7 @@ const styles = StyleSheet.create({
     zIndex:1,
   },
   register_wrapper: {
-    width: 400,
+    width: 440,
     height: 60,
     
   }
